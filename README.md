@@ -2,7 +2,7 @@
 
 <p align="center">
     <kbd>
-        <img src="./assets/bora-codar.png"style="border-radius: 5px" alt="Website" height="80px">
+        <img src="./assets/bora-codar-banner.png"style="border-radius: 5px" alt="Website" height="80px">
     </kbd>
 </p>
 
