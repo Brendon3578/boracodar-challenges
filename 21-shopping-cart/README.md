@@ -6,7 +6,7 @@ O Carrinho de Compras é um componente fundamental em qualquer e-commerce. Ele p
 
 Desenvolvido **após** o evento #boracodar 21
 
-[Acesse o Projeto clicando aqui](https://brendon3578.github.io/shopping-cart-twenty-one/)
+[Acesse o Projeto clicando aqui](https://brendon3578.github.io/boracodar-challenges/21-shopping-cart/index.html)
 
 <p align="center">
     <kbd>

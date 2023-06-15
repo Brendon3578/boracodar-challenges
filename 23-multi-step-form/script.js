@@ -24,7 +24,7 @@ form.addEventListener("click", (e) => {
   const action = e.target.dataset.action;
   // next or prev
   actions[action]();
-  console.log(currentStep);
+  // console.log(currentStep);
   updateActiveStep();
   updateProgressStep();
 });
@@ -44,7 +44,7 @@ form.addEventListener("submit", (e) => {
     }
   }
 
-  console.log(completedFields);
+  // console.log(completedFields);
 
   let alertMessage = [
     `Obrigado ${data.get("name")}! Os seguintes campos foram preenchidos:`,

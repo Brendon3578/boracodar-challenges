@@ -6,7 +6,7 @@ O Kanban é um sistema visual que busca gerenciar o trabalho muito útil para co
 
 Desenvolvido durante o evento #boracodar12
 
-[Acesse o Projeto clicando aqui](https://brendon3578.github.io/kanban-twelve/src/)
+[Acesse o Projeto clicando aqui](https://brendon3578.github.io/boracodar-challenges/12-kanban/src/index.html)
 
 <p align="center">
     <kbd>

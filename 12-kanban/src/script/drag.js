@@ -8,7 +8,7 @@ draggableItens.forEach((item) => {
 });
 
 function dragStart() {
-  console.log("Item: Start dragging");
+  // console.log("Item: Start dragging");
 
   dropZones.forEach((dropzone) => dropzone.classList.add("dropzone-highlight"));
 
@@ -18,7 +18,7 @@ function dragStart() {
 
 function drag() {
   // this = item that is dragging
-  console.log("Item: Is dragging");
+  // console.log("Item: Is dragging");
 }
 
 function dragEnd() {
@@ -45,7 +45,7 @@ function dragover() {
 
   const itemBeingDragged = document.querySelector(".is-dragging");
 
-  console.log(this);
+  // console.log(this);
   this.appendChild(itemBeingDragged);
 }
 

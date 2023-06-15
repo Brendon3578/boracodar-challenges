@@ -10,7 +10,7 @@ O Formulário de múltiplas etapas (*multi-step*) é muito utilizado para facili
 
 Desenvolvido **após** o evento #boracodar 23
 
-[Acesse o Projeto clicando aqui](https://brendon3578.github.io/multi-step-form-twenty-three/)
+[Acesse o Projeto clicando aqui](https://brendon3578.github.io/boracodar-challenges/23-multi-step-form/index.html)
 
 <p align="center">
     <kbd>

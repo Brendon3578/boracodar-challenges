@@ -61,11 +61,6 @@ body {
   max-width: 80rem;
 }
 
-header h1 {
-  display: flex;
-  gap: 1.6rem;
-}
-
 img {
   max-width: 100%;
   min-width: 30rem;

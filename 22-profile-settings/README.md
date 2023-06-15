@@ -6,7 +6,7 @@ Profile Settings é um componente de configurações de conta de usuário. Ele p
 
 Desenvolvido durante o evento de #boracodar22
 
-[Acesse o Projeto clicando aqui](https://brendon3578.github.io/profile-settings-twenty-two/)
+[Acesse o Projeto clicando aqui](https://brendon3578.github.io/boracodar-challenges/22-profile-settings/index.html)
 
 <p align="center">
     <kbd>
