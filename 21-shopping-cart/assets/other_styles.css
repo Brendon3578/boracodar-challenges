@@ -1,0 +1,53 @@
+.main {
+  padding: 3.2rem;
+}
+
+.main h1 > span {
+  color: var(--color-brand-color-light);
+}
+
+.main .symbol {
+  color: var(--color-brand-color-light);
+}
+
+.main .emphasis {
+  color: var(--teal-green);
+}
+
+.main .text {
+  max-width: 40rem;
+  margin-top: 4rem;
+  font-size: 1.8rem;
+  color: #d5d4d6;
+}
+
+.expand {
+  background: none;
+  border: none;
+  font-size: 4rem;
+  color: var(--color-brand-color-light);
+  padding: 1rem;
+  transition: 0.3s;
+  opacity: 1;
+}
+
+.invisible {
+  animation: show 0.25s ease-in-out;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    display: block;
+  }
+}
+
+.expand:hover {
+  color: var(--color-brand-color-lighter);
+}

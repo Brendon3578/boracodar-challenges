@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="./assets/other_styles.css" />
+
+    <link
+      rel="shortcut icon"
+      href="./assets/favicon/favicon.ico"
+      type="image/x-icon"
+    />
+
+    <title>Carrinhos de Compras</title>
+  </head>
+  <body>
+    <div id="app">
+      <div id="cart">
+        <header class="cart__header">
+          <div class="cart__title">
+            Seu carrinho tem
+            <strong class="cart__quantity">5 itens</strong>
+          </div>
+          <div class="cart__header__cancel-button">
+            <i class="ph ph-x"></i>
+          </div>
+        </header>
+        <main class="cart__body">
+          <ul class="cart__list" id="products-list"></ul>
+        </main>
+        <footer class="cart__footer">
+          <div class="cart__total">
+            <span>Total:</span>
+            <span class="cart__total__price" id="total-price">
+              R$ 10.681,60
+            </span>
+          </div>
+          <span class="cart__add-cupom">
+            <i class="ph ph-bold ph-tag"></i>
+
+            <input
+              type="text"
+              placeholder="Adicionar Cupom"
+              class="cart__add-cupom__input"
+            />
+          </span>
+          <button class="cart__purchase-btn" id="confirm-purchase-btn">
+            <div class="loading-icon hidden" id="loading-icon">
+              <i class="ph ph-bold ph-circle-notch"></i>
+            </div>
+            <span id="confirm-text"> Finalizar compra </span>
+          </button>
+        </footer>
+      </div>
+    </div>
+
+    <div class="main">
+      <button class="expand" id="expand" title="Descobrir sobre o projeto">
+        <i class="ph ph-question"></i>
+      </button>
+      <div id="details" class="hidden">
+        <h1>Projeto feito por <span>Brendon Gomes </span></h1>
+        <h2>
+          Durante a <span class="symbol"> &lcub; </span>
+          <span class="emphasis"> #boracodar</span>
+          <span class="symbol"> &rcub; </span> 21
+        </h2>
+
+        <p class="text">
+          O carrinho de compras é um componente fundamental em qualquer
+          aplicativo ou website de e-commerce.
+          <br />
+          Ele pode ser utilizado como um drawer ou dropdown em aplicações web ou
+          mobile.
+        </p>
+      </div>
+    </div>
+
+    <script src="./product.js"></script>
+    <script src="./assets/other_script.js"></script>
+  </body>
+</html>

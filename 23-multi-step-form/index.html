@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&family=Titillium+Web:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Formulário Multi Step</title>
+  </head>
+  <body>
+    <main id="app">
+      <form>
+        <div class="step-progress">
+          <strong data-step class="active">Contato</strong>
+          <i class="ph ph-caret-right"></i>
+          <strong data-step>Empresa</strong>
+          <i class="ph ph-caret-right"></i>
+          <strong data-step>Projeto</strong>
+        </div>
+
+        <div class="form-step active">
+          <div class="content">
+            <div class="input-wrapper">
+              <label for="name">Nome</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Como prefere ser chamado"
+                required
+              />
+            </div>
+
+            <div class="input-wrapper">
+              <label for="phone">Telefone</label>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                placeholder="Digite seu número de WhatsApp"
+                onkeypress="return /\d|[+]|[(]|[)]/.test(event.key)"
+              />
+            </div>
+
+            <div class="input-wrapper">
+              <label for="email">E-mail</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Digite seu e-mail"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="button-wrapper justify-end">
+            <button
+              type="button"
+              class="btn primary md-ripples ripples-dark"
+              data-action="next"
+            >
+              Continuar
+            </button>
+          </div>
+        </div>
+
+        <div class="form-step hide">
+          <div class="content">
+            <div class="input-wrapper">
+              <label for="business-name">Nome da empresa</label>
+              <input
+                id="business-name"
+                name="business-name"
+                type="text"
+                placeholder="Qual é o nome da empresa"
+                required
+              />
+            </div>
+
+            <div class="input-wrapper">
+              <label for="business-colab-number">Número de funcionários</label>
+              <input
+                id="business-colab-number"
+                name="business-colab-number"
+                type="text"
+                placeholder="Digite o número de colaboradores"
+              />
+            </div>
+
+            <div class="input-wrapper">
+              <label for="business-about">Sobre seu negócio</label>
+              <textarea
+                name="business-about"
+                id="business-about"
+                placeholder="Fale um pouco sobre seus produtos ou serviços"
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="button-wrapper">
+            <button
+              type="button"
+              class="btn secondary md-ripples ripples-dark"
+              data-action="prev"
+              prev
+            >
+              Voltar
+            </button>
+            <button
+              type="button"
+              class="btn primary md-ripples ripples-dark"
+              data-action="next"
+            >
+              Continuar
+            </button>
+          </div>
+        </div>
+
+        <div class="form-step hide">
+          <div class="content">
+            <div class="input-wrapper">
+              <label for="project">Objetivos do projeto</label>
+              <textarea
+                name="project"
+                id="project"
+                placeholder="Descreva quais os objetivos desse projeto"
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="button-wrapper">
+            <button
+              type="button"
+              class="btn secondary md-ripples ripples-dark"
+              data-action="prev"
+            >
+              Voltar
+            </button>
+            <button
+              type="submit"
+              class="btn primary md-ripples ripples-dark"
+              data-action="next"
+            >
+              Enviar Proposta
+            </button>
+          </div>
+        </div>
+
+        <div class="form-step hide">
+          <div class="content">
+            <div class="two-cols">
+              <img
+                class="sended-image"
+                src="./assets/sent-illustration.svg"
+                alt=""
+              />
+              <h2 class="sended-text">
+                <span class="success-message"> Formulário </span>
+                enviado com sucesso.
+              </h2>
+            </div>
+          </div>
+
+          <div class="button-wrapper justify-end">
+            <button
+              type="button"
+              class="btn primary md-ripples ripples-dark"
+              data-action="prev"
+            >
+              Editar resposta
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <div class="app-details">
+        <strong>Projeto feito por <span>Brendon Gomes </span></strong>
+        <p>
+          Durante a <span class="symbol"> &lcub; </span>
+          <span class="emphasis"> #boracodar</span>
+          <span class="symbol"> &rcub; </span> 23
+        </p>
+      </div>
+    </main>
+    <script src="./other/script/ripples.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="shortcut icon"
+      href="./assets/favicon/favicon.ico"
+      type="image/x-icon"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="assets/other_styles.css" />
+
+    <title>Profile Settings</title>
+  </head>
+  <body>
+    <div id="app">
+      <div id="settings">
+        <header class="settings__header">
+          <label class="settings__image-label" id="user-image">
+            <div class="image-label__icon">
+              <i class="ph ph-paint-brush-household"></i>
+            </div>
+            <img
+              src="./assets/image-placeholder.png"
+              alt=""
+              id="settings-user-image"
+              class="settings__image"
+            />
+            <input
+              type="file"
+              id="user-photo-input"
+              class="hidden"
+              title="Selecione uma foto"
+              accept="image/*"
+            />
+          </label>
+          <div class="settings__user">
+            <input
+              class="settings__name"
+              type="text"
+              title="Digite seu nome"
+              placeholder="Digite seu nome ✍"
+              value="Brendon Gomes"
+            />
+            <input
+              class="settings__email"
+              type="text"
+              title="Digite seu e-mail"
+              placeholder="Digite seu e-mail 📬"
+              value="brendongomes40@gmail.com"
+            />
+          </div>
+        </header>
+        <nav class="settings__options">
+          <div class="settings__divider"></div>
+          <section class="settings__section">
+            <h4 class="option__title">Conta</h4>
+            <a href="#" class="option__link">
+              <i class="ph ph-user-circle"></i>
+              <span>Dados pessoais</span>
+              <span class="option__arrow"
+                ><i class="ph ph-caret-right"></i
+              ></span>
+            </a>
+            <a href="#" class="option__link">
+              <i class="ph ph-key"></i>
+              <span>Informações de login</span>
+              <span class="option__arrow"
+                ><i class="ph ph-caret-right"></i
+              ></span>
+            </a>
+          </section>
+
+          <div class="settings__divider"></div>
+          <section class="settings__section">
+            <h4 class="option__title">Preferências</h4>
+            <a href="#" class="option__link">
+              <i class="ph ph-bell"></i>
+              <span>Notificações</span>
+              <span class="option__arrow"
+                ><i class="ph ph-caret-right"></i
+              ></span>
+            </a>
+            <a href="#" class="option__link">
+              <i class="ph ph-person-arms-spread"></i>
+              <span>Acessibilidade</span>
+              <span class="option__arrow"
+                ><i class="ph ph-caret-right"></i
+              ></span>
+            </a>
+          </section>
+
+          <div class="settings__divider"></div>
+          <section class="settings__section">
+            <h4 class="option__title">Privacidade</h4>
+            <a href="#" class="option__link">
+              <i class="ph ph-devices"></i>
+              <span>Aparelhos conectados</span>
+              <span class="option__arrow"
+                ><i class="ph ph-caret-right"></i
+              ></span>
+            </a>
+            <a href="#" class="option__link">
+              <i class="ph ph-user-switch"></i>
+              <span>Contas vinculadas</span>
+              <span class="option__arrow"
+                ><i class="ph ph-caret-right"></i
+              ></span>
+            </a>
+          </section>
+
+          <div class="settings__divider"></div>
+          <section class="settings__section">
+            <a href="#" class="option__link">
+              <i class="ph ph-question"></i>
+              <span>Central de Ajuda</span>
+              <span class="option__arrow"
+                ><i class="ph ph-caret-right"></i
+              ></span>
+            </a>
+            <a href="#" class="option__link option__link--log-out">
+              <i class="ph ph-sign-out"></i>
+              <span>Sair</span>
+              <span class="option__arrow"
+                ><i class="ph ph-caret-right"></i
+              ></span>
+            </a>
+          </section>
+        </nav>
+      </div>
+      <div class="details">
+        <h1>Projeto feito por <span>Brendon Gomes </span></h1>
+        <h2>
+          Durante a <span class="symbol"> &lcub; </span>
+          <span class="emphasis"> #boracodar</span>
+          <span class="symbol"> &rcub; </span> 22
+        </h2>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

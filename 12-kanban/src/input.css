@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.dropzone-highlight {
+  @apply bg-slate-200;
+}
+
+.is-dragging {
+  @apply cursor-move opacity-50;
+}
+
+.drag-over {
+  @apply bg-violet-500/50;
+}

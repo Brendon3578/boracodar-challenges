@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Monitor Gamer Curvo 49 DQHD, 240Hz, 1ms, HDMI e DisplayPort, HDR 1000, FreeSync Premium, Ajuste de Altura - LC49G95TSSLXZD",
+    "price": 8599.90,
+    "image_url": "./assets/product-image-monitor.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Cadeira Gamer  RGB - Preta com Iluminação (Led)",
+    "price": 959.90,
+    "image_url": "./assets/product-image-cadeira.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Teclado Gamer Mecânico Low Profile RGB AW510K 580",
+    "price": 1002,
+    "image_url": "./assets/product-image-teclado.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Headset Gamer RGB Preto",
+    "price": 99.90,
+    "image_url": "./assets/product-image-headset.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Patinho De Borracha Para Banho",
+    "price": 19.9,
+    "image_url": "./assets/product-image-patinho.jpg"
+  }
+]
