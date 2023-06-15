@@ -10,7 +10,7 @@ Desenvolvido **após** o evento #boracodar 21
 
 <p align="center">
     <kbd>
-        <img src="../.github/shopping-cart-preview.PNG"style="border-radius: 5px" alt="Website">
+        <img src="../.github/shopping-cart-preview.png"style="border-radius: 5px" alt="Website">
     </kbd>
 </p>
 

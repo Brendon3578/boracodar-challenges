@@ -14,7 +14,7 @@ Desenvolvido **após** o evento #boracodar 23
 
 <p align="center">
     <kbd>
-        <img src="../.github/multi-step-form-preview.PNG"style="border-radius: 5px" alt="Website">
+        <img src="../.github/multi-step-form-preview.png"style="border-radius: 5px" alt="Website">
     </kbd>
 </p>
 
