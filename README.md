@@ -8,7 +8,7 @@
 
 Esse repositório é sobre os desafios que desenvolvi durante os eventos de #boracodar da Rocketseat.
 
-Cada projeto ou componente do projeto foi desenvolvido para testar minhas habilidades de HTML, CSS e Javascript, sempre em buscar de me aperfeiçoar e aprender novas formas de criar aplicações front-end.
+Cada projeto ou componente do projeto foi desenvolvido para testar e aperfeiçoar meus conhecimentos de HTML, CSS e Javascript, sempre em buscar de me aprender novas formas de criar e resolver desafios do dia-a-dia de front-end.
 
 Acesse a [página principal dos projetos](https://brendon3578.github.io/boracodar-challenges/)
 
