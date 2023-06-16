@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="range.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- icon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./favicon/site.webmanifest" />
+
+    <title>Ajustes de iluminação</title>
+  </head>
+  <body>
+    <div class="app">
+      <div class="light-adjustment">
+        <div class="light"></div>
+        <main class="content">
+          <h1 class="title">Ajustes de iluminação</h1>
+          <div class="system-color system-color--hsl">
+            <!-- hue input -->
+            <div class="range-wrapper">
+              <i class="ph ph-thin ph-palette"></i>
+              <label for="hue" class="sr-only">Tonalidade (Hue) da cor</label>
+              <input
+                type="range"
+                name="hue"
+                id="hue"
+                min="1"
+                max="360"
+                data-hsl="hue"
+                value="273"
+              />
+            </div>
+
+            <!-- saturation input -->
+            <div class="range-wrapper">
+              <i class="ph ph-thin ph-drop-half-bottom"></i>
+              <label for="saturation" class="sr-only">Saturação da cor</label>
+              <input
+                type="range"
+                name="saturation"
+                id="saturation"
+                min="0"
+                max="100"
+                value="98"
+                data-hsl="saturation"
+              />
+            </div>
+
+            <!-- lightness input -->
+            <div class="range-wrapper">
+              <i class="ph ph-thin ph-sun"></i>
+              <label for="lightness" class="sr-only">Brilho da cor</label>
+              <input
+                type="range"
+                name="lightness"
+                id="lightness"
+                min="0"
+                max="100"
+                data-hsl="lightness"
+                value="50"
+              />
+            </div>
+          </div>
+          <div class="color-schemes">
+            <div class="color color-current" data-color-shades="current">
+              <span></span>
+            </div>
+
+            <div class="color-group">
+              <div
+                class="color color-extra-light"
+                data-color-shades="extra-light"
+              >
+                <span></span>
+              </div>
+              <div class="color color-lighter" data-color-shades="lighter">
+                <span></span>
+              </div>
+              <div class="color color-light" data-color-shades="light">
+                <span></span>
+              </div>
+              <div class="color color-normal" data-color-shades="normal">
+                <span></span>
+              </div>
+              <div class="color color-dark" data-color-shades="dark">
+                <span></span>
+              </div>
+              <div class="color color-darker" data-color-shades="darker">
+                <span></span>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script src="./utils.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

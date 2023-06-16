@@ -18,6 +18,7 @@ Acesse a [página principal dos projetos](https://brendon3578.github.io/boracoda
 - [🛒 Carrinho de Compras - #boracodar21](./21-shopping-cart/README.md) - Componente de um carrinho de compras
 - [⚙ Profile Settings - #boracodar22](./22-profile-settings/README.md) - Componente de menu de configurações de usuário
 - [📃 Multi-step Form - #boracodar23](./23-multi-step-form/README.md) - Formulário multi etapas
+- [🎨 Light Adjustment - #boracodar24](./24-light-adjustment/README.md) - Ajuste de Iluminação
 
 ---
 
