@@ -1,0 +1,162 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* transformar a unidade rem em 10px em vez de 16px */
+  font-size: 62.5%;
+
+  --white: #ebebeb;
+  --gray: #2d2a37;
+  --light-gray: #6b6b6b;
+  --background: linear-gradient(to left, #807ece, #8e7ece);
+  --purple: #7f45e2;
+  --light-purple: #975dfa;
+  --dark-purple: #462878;
+  --error: #ef4444;
+
+  --display-scale: 1;
+}
+
+button {
+  cursor: pointer;
+  font-family: "Rubik", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  display: grid;
+  place-content: center;
+  background: var(--background);
+  font-weight: 400;
+  font-family: "Rubik", sans-serif;
+}
+
+.calculator {
+  background-color: var(--gray);
+  padding: 5.4rem 3.2rem 3.2rem 3.2rem;
+  border-radius: 4.8rem;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
+    0px 188px 52px 0px rgba(0, 0, 0, 0.01),
+    0px 120px 48px 0px rgba(0, 0, 0, 0.04),
+    0px 68px 41px 0px rgba(0, 0, 0, 0.15), 0px 30px 30px 0px rgba(0, 0, 0, 0.26),
+    0px 8px 17px 0px rgba(0, 0, 0, 0.29),
+    inset 0px 6px 8px 0px rgba(255, 255, 255, 0.1),
+    inset 0px -4px 5px 0px rgba(0, 0, 0, 0.22);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.6rem;
+}
+
+.calculator .buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.buttons .button {
+  width: 6.4rem;
+  height: 6.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  font-size: 2.4rem;
+  border: none;
+  background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(255, 255, 255, 0.05));
+
+  color: white;
+  box-shadow: 0px 11px 7px 0px rgba(0, 0, 0, 0.01),
+    0px 7px 7px 0px rgba(0, 0, 0, 0.04), 0px 4px 6px 0px rgba(0, 0, 0, 0.1),
+    0px 2px 4px 0px rgba(0, 0, 0, 0.26), 0px 2px 0px 0px rgba(0, 0, 0, 0.29),
+    inset 0px 2px 3px 0px rgba(255, 255, 255, 0.06);
+}
+
+.button.button-highlight {
+  color: var(--light-purple);
+}
+
+.buttons .button.button-operation {
+  background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(255, 255, 255, 0.05)),
+    var(--dark-purple);
+  box-shadow: 0px 11px 7px 0px rgba(0, 0, 0, 0.01),
+    0px 7px 7px 0px rgba(0, 0, 0, 0.04), 0px 4px 6px 0px rgba(0, 0, 0, 0.1),
+    0px 2px 4px 0px rgba(0, 0, 0, 0.26), 0px 2px 0px 0px rgba(0, 0, 0, 0.29),
+    inset 0px 2px 3px 0px rgba(255, 255, 255, 0.1);
+}
+
+.buttons .button.button-operation.button-highlight {
+  background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(255, 255, 255, 0.05)),
+    var(--purple);
+
+  color: white;
+}
+
+.buttons .button:hover {
+  filter: brightness(1.2);
+  transform: scale(1.05);
+}
+
+.buttons .button:active {
+  box-shadow: rgba(15, 16, 17, 0.5) 3px 3px 6px 0px inset,
+    rgba(27, 27, 27, 0.7) -3px -3px 6px 1px inset;
+  transform: scale(1);
+}
+
+.buttons .button.button.button-operation:active {
+  box-shadow: rgba(34, 25, 41, 0.5) 3px 3px 6px 0px inset,
+    rgba(33, 22, 37, 0.7) -3px -3px 6px 1px inset,
+    0px 4px 6px 0px rgba(0, 0, 0, 0.1);
+  transform: scale(1);
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.history {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 2rem;
+  color: var(--light-gray);
+}
+
+.result {
+  width: 100%;
+  height: 4.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.result .number {
+  max-width: 26rem;
+  overflow-x: visible;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.result .equals {
+  color: var(--light-gray);
+  font-size: 2.4rem;
+}
+
+.result .number {
+  color: var(--white);
+  font-size: calc(3.6rem * var(--display-scale));
+  transition: all 0.35s ease-in-out;
+}
+
+.result .number.error {
+  color: var(--error);
+}

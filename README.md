@@ -14,6 +14,7 @@ Acesse a [página principal dos projetos](https://brendon3578.github.io/boracoda
 
 ## 🍩 Lista dos desafios concluídos
 
+- [🧮 Calculadora com RPN - #boracodar 5](./05-calculator/README.md)
 - [📌 Kanban Twelve - #boracodar 12](./12-kanban/README.md) - Plataforma de Kanban
 - [🛒 Carrinho de Compras - #boracodar21](./21-shopping-cart/README.md) - Componente de um carrinho de compras
 - [⚙ Profile Settings - #boracodar22](./22-profile-settings/README.md) - Componente de menu de configurações de usuário

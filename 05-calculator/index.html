@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="scrollbar.css">
+
+  <title>Calculadora</title>
+</head>
+
+<body>
+  <div class="app">
+    <section class="calculator">
+      <header class="header">
+        <div class="history">
+          <span data-result="previous">1+1</span>
+        </div>
+        <div class="result">
+          <div class="equals">
+            <i class="ph ph ph-equals"> </i>
+          </div>
+          <div class="number">
+            <span data-result="now"></span>
+          </div>
+        </div>
+      </header>
+      <main class="buttons">
+        <button data-operation="clear" class="button button-highlight">C</button>
+        <button data-operation="openParentheses" class="button">(</button>
+        <button data-operation="closeParentheses" class="button">)</button>
+        <button data-operation="divide" class="button button-operation"> <i class="ph ph-divide"></i></button>
+        <button data-number class="button">7</button>
+        <button data-number class="button">8</button>
+        <button data-number class="button">9</button>
+        <button data-operation="times" class="button button-operation"> <i class="ph ph-x"></i></button>
+        <button data-number class="button">4</button>
+        <button data-number class="button">5</button>
+        <button data-number class="button">6</button>
+        <button data-operation="minus" class="button button-operation"> <i class="ph ph-minus"></i></button>
+        <button data-number class="button">2</button>
+        <button data-number class="button">1</button>
+        <button data-number class="button">3</button>
+        <button data-operation="plus" class="button button-operation"> <i class="ph ph-plus"></i></button>
+        <button data-operation="erase" class="button">
+          <i class="ph ph-backspace"></i>
+        </button>
+        <button data-number class="button">0</button>
+        <button data-number class="button">,</button>
+        <button data-operation="equals" class="button button-operation button-highlight"> <i
+            class="ph ph-equals"></i></button>
+      </main>
+    </section>
+  </div>
+  <script type="module" src="./script.js"></script>
+  <script type="module" src="./stack.js"></script>
+</body>
+
+
+</html>
