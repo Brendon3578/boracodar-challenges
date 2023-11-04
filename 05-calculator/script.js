@@ -1,8 +1,12 @@
 import Stack from "./stack.js";
+import shuntingYard from "./shuntingYardAlgorithm.js";
 
 const rootEl = document.querySelector(":root");
 const operationsButtons = document.querySelectorAll("[data-operation]");
 const numbersButtons = document.querySelectorAll("[data-number]");
+const previousOperationText = document.querySelector(
+  "[data-result='previous']"
+);
 const currentOperationText = document.querySelector("[data-result='now']");
 
 let isOperationalPressed = false;
@@ -164,12 +168,12 @@ const numberText = document.querySelector("div.number");
 
 function getResult() {
   let operation = currentOperationText.textContent;
-  operation = operation.replace("x", "*").replace(",", ".").trim();
+  previousOperationText.textContent = operation;
 
   try {
+    operation = operation.replace("x", "*").replace(",", ".").trim();
     if (isCurrentOperationValid(operation)) {
       currentOperationText.textContent = eval(currentOperationText.textContent);
-      return "0";
     } else {
       window.alert("Equação aritmética não é válida!");
       throw new Error("Equação inválida");
@@ -186,3 +190,8 @@ function getResult() {
 
   return "";
 }
+
+console.log("2 + 2 + 2 ->", shuntingYard("2 + 2 + 2")); // 2 2 + 2 +
+// console.log("2 + 2 * 2 ->", shuntingYard("2 + 2 * 2")); // 2 2 2 * +
+// console.log("(2 + 2) * 2 ->", shuntingYard("(2 + 2) * 2")); // 2 2 + 2 *
+// console.log("2 / (4 * 2) ->", shuntingYard("2 / (4 * 2)")); // 2 4 2 * /

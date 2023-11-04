@@ -12,7 +12,7 @@
 
 Desenvolvido **durante** o evento #boracodar 05
 
-[Acesse o Projeto clicando aqui](https://brendon3578.github.io/boracodar-challenges/calculator/index.html)
+[Acesse o Projeto clicando aqui](https://brendon3578.github.io/boracodar-challenges/05-calculator/index.html)
 
 <p align="center">
     <kbd>

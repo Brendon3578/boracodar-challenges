@@ -5,20 +5,20 @@ export default class Stack {
 
   #itens = [];
 
+  isEmpty() {
+    return this.#itens.length == 0;
+  }
+
   push(item) {
     return this.#itens.push(item);
   }
 
   pop() {
-    if (!this.isEmpty) return this.#itens.pop();
-  }
-
-  isEmpty() {
-    return this.#itens.length == 0;
+    if (!this.isEmpty()) return this.#itens.pop();
   }
 
   peek() {
-    return !this.isEmpty() ? this.#itens[this.#itens.length] : null;
+    return !this.isEmpty() ? this.#itens[this.#itens.length - 1] : null;
   }
 
   size() {
