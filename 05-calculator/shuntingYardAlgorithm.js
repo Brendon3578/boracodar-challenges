@@ -3,7 +3,7 @@ import Stack from "./stack.js";
 const operatorsSymbols = ["+", "-", "*", "/", "(", ")"];
 
 const isOperator = (token) => operatorsSymbols.includes(token);
-const isNumber = (token) => token.match(/^\d+$/gm);
+const isNumber = (token) => !isNaN(token);
 const isLeftParenthesis = (token) => token == "(";
 const isRightParenthesis = (token) => token == ")";
 const isNotNull = (token) => token != null;
@@ -16,21 +16,18 @@ let operators = {
 };
 
 /**
- * @param {string} tokensString
+ * @param {Array<string>} tokensString
  */
-export default function shuntingYard(tokensString) {
+export default function shuntingYard(tokens) {
   let output = [];
   let stack = new Stack();
-
-  let tokens = tokensString.replaceAll(" ", "").split("");
-  console.log("initial tokens", tokens);
 
   tokens.forEach((token) => {
     if (isNumber(token)) {
       output.push(token);
+      // todo: save 3.33 + 3
     } else if (isOperator(token)) {
       let top_operator = stack.peek();
-      console.log(top_operator);
 
       if (isRightParenthesis(token)) {
         while (isNotNull(top_operator) && !isLeftParenthesis(top_operator)) {
@@ -38,20 +35,19 @@ export default function shuntingYard(tokensString) {
           stack.pop();
           top_operator = stack.peek();
         }
-        stack.pop();
+        if (isLeftParenthesis(top_operator)) {
+          stack.pop(); // Remove o parêntese esquerdo da pilha
+        }
       } else if (isLeftParenthesis(token)) {
         stack.push(token);
       } else {
         while (
-          isNotNull(top_operator) &&
-          operators[top_operator]?.precedence > operators[token]?.precedence
+          stack.size() > 0 &&
+          isOperator(stack.peek()) &&
+          operators[token]?.precedence <= operators[stack.peek()]?.precedence
         ) {
-          output.push(top_operator);
-          stack.pop();
-          top_operator = stack.peek();
+          output.push(stack.pop());
         }
-
-        console.log(stack.peek());
         stack.push(token);
       }
     }

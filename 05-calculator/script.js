@@ -164,6 +164,10 @@ function isCurrentOperationValid(operation) {
   return true;
 }
 
+const separatorRegex = /(\d+(?:\.\d+)?|[+\-*/])/g;
+const separateOperationsAndOperators = (expression) =>
+  expression.match(separatorRegex) || [];
+
 const numberText = document.querySelector("div.number");
 
 function getResult() {
@@ -171,9 +175,16 @@ function getResult() {
   previousOperationText.textContent = operation;
 
   try {
-    operation = operation.replace("x", "*").replace(",", ".").trim();
+    operation = operation
+      .replace("x", "*")
+      .replace(",", ".")
+      .replace(" ", "")
+      .trim();
     if (isCurrentOperationValid(operation)) {
-      currentOperationText.textContent = eval(currentOperationText.textContent);
+      const separatedOperations = separateOperationsAndOperators(operation);
+      console.log(separatedOperations);
+      console.log(shuntingYard(separatedOperations));
+      currentOperationText.textContent = eval(operation);
     } else {
       window.alert("Equação aritmética não é válida!");
       throw new Error("Equação inválida");
@@ -191,7 +202,8 @@ function getResult() {
   return "";
 }
 
-console.log("2 + 2 + 2 ->", shuntingYard("2 + 2 + 2")); // 2 2 + 2 +
+// console.log("2 + 2 + 2 ->", shuntingYard("2 + 2 + 2")); // 2 2 + 2 +
+// console.log("3 + 4 * ( 2 - 1 ) / 5 ->", shuntingYard("3 + 4 * ( 2 - 1 ) / 5")); // 2 2 + 2 +
 // console.log("2 + 2 * 2 ->", shuntingYard("2 + 2 * 2")); // 2 2 2 * +
 // console.log("(2 + 2) * 2 ->", shuntingYard("(2 + 2) * 2")); // 2 2 + 2 *
 // console.log("2 / (4 * 2) ->", shuntingYard("2 / (4 * 2)")); // 2 4 2 * /
