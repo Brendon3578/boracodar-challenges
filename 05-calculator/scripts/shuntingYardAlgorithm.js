@@ -10,6 +10,7 @@ import {
   OPERATORS,
   logStructState,
 } from "./utils.js";
+import { interfaceUISteps } from "./display.js";
 
 /**
  * @param {Array<string>} tokensString
@@ -20,12 +21,15 @@ export default class ShuntingYardAlgorithm {
    * @param {Array<String>} input
    */
   static tokenize(input) {
+    interfaceUISteps.addStep("input", input, "init");
+
     const outputQueue = new Queue();
     const operatorStack = new Stack();
 
     input.forEach((token) => {
       if (isNumber(token)) {
         outputQueue.enqueue(token);
+        interfaceUISteps.addStep("output", token, "enqueue");
       } else if (isOperator(token)) {
         let top_operator = operatorStack.peek();
 
@@ -33,12 +37,18 @@ export default class ShuntingYardAlgorithm {
           while (isNotNull(top_operator) && !isLeftParenthesis(top_operator)) {
             outputQueue.enqueue(top_operator);
             operatorStack.pop();
+
+            interfaceUISteps.addStep("stack", null, "pop");
+            interfaceUISteps.addStep("output", top_operator, "enqueue");
+
             top_operator = operatorStack.peek();
           }
           if (isLeftParenthesis(top_operator)) {
+            interfaceUISteps.addStep("stack", null, "pop");
             operatorStack.pop(); // Remove o parêntese esquerdo da pilha
           }
         } else if (isLeftParenthesis(token)) {
+          interfaceUISteps.addStep("stack", token, "push");
           operatorStack.push(token);
         } else {
           while (
@@ -47,8 +57,16 @@ export default class ShuntingYardAlgorithm {
             OPERATORS[token]?.precedence <=
               OPERATORS[operatorStack.peek()]?.precedence
           ) {
+            interfaceUISteps.addStep(
+              "output",
+              operatorStack.peek(),
+              "enqueueFromStack"
+            );
+
             outputQueue.enqueue(operatorStack.pop());
           }
+
+          interfaceUISteps.addStep("stack", token, "push");
           operatorStack.push(token);
         }
       }
@@ -61,10 +79,17 @@ export default class ShuntingYardAlgorithm {
     });
 
     while (!operatorStack.isEmpty()) {
+      interfaceUISteps.addStep(
+        "output",
+        operatorStack.peek(),
+        "enqueueFromStack"
+      );
       outputQueue.enqueue(operatorStack.pop());
     }
 
     logStructState(outputQueue, "Saída da Fila no Final: ", "DeepSkyBlue");
+
+    interfaceUISteps.showSteps();
 
     return outputQueue;
   }

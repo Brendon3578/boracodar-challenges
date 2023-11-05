@@ -17,6 +17,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="./styles/styles.css">
+  <link rel="stylesheet" href="./styles/extra.css">
   <link rel="stylesheet" href="./styles/switch.css">
   <link rel="stylesheet" href="./styles/scrollbar.css">
 
@@ -77,37 +78,40 @@
       </div>
 
       <div class="second-calculator" id="configurations">
-        <h2>Passo-a-passo do cálculo feito</h2>
-        <p>
-        </p>
-        <section>
-          <div>
-            <h3>Resolução através do Algorítmo Shunting Yard</h3>
-            <div class="shunting-yard-container">
-              <div class="input-output-container">
-                <span class="label output">Output</span>
-                <div class="number-output" id="shunting-output">
+        <div class="container">
+          <h2>Passo-a-passo do cálculo feito</h2>
+          <p>
+          </p>
+          <section>
+            <div>
+              <h3>Resolução através do Algorítmo Shunting Yard</h3>
+              <div class="shunting-yard-container">
+                <div class="input-output-container">
+                  <span class="label output">Output</span>
+                  <div class="number-output" id="shunting-output">
+                  </div>
+                  <div class="direction" id="direction-arrow">
+                    ⬇
+                  </div>
+                  <span class="label input">Input</span>
+                  <div class="number-input" id="shunting-input">
+                  </div>
                 </div>
-                <div class="direction">
-                  ⬇
-                </div>
-                <span class="label input">Input</span>
-                <div class="number-input" id="shunting-input">
+                <div class="stack-container">
+                  <span class="label">Operator Stack</span>
+                  <div class="number-stack" id="shunting-stack">
+                  </div>
                 </div>
               </div>
-              <div class="stack-container">
-                <span class="label">Operator Stack</span>
-                <div class="number-stack" id="shunting-stack">
-                </div>
-              </div>
-            </div>
 
-          </div>
-        </section>
-        <p>Esse cálculo foi feito utilizando o algoritmo de <strong>Shunting Yard (Pátio de Manobras)</strong> e a
-          <strong>Notação Polonesa
-            Reversa (NPR)</strong> com a utilização de estrutura de dados Stacks (pilhas) e Queues (Filas)
-        </p>
+            </div>
+          </section>
+          <p>Esse cálculo foi feito utilizando o algoritmo de <strong>Shunting Yard (Pátio de Manobras)</strong> e a
+            <strong>Notação Polonesa
+              Reversa (NPR)</strong> com a utilização de estrutura de dados Stacks (pilhas) e Queues (Filas)
+          </p>
+
+        </div>
       </div>
 
     </section>

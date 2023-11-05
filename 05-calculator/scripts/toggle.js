@@ -4,7 +4,8 @@ const toggleCheckbox = document.getElementById("toggle-configurations");
 function toggleConfigurationsPanel(checked) {
   if (checked) {
     configurationsPanel.classList.remove("hidden");
-    configurationsPanel.style.maxWidth = configurationsPanel.scrollWidth + "px";
+    configurationsPanel.style.maxWidth =
+      configurationsPanel.scrollWidth + 30 + "px";
   } else {
     configurationsPanel.classList.add("hidden");
     configurationsPanel.style.maxWidth = null;

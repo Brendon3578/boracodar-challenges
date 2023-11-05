@@ -152,9 +152,7 @@ const SEPARATOR_REGEX = /(\d+(?:\.\d+)?|[+\-*()])/g;
  * @returns {Array<string>}
  */
 const separateOperationsAndOperators = (expression) => {
-  //console.log(expression);
-  //return expression.match(SEPARATOR_REGEX) || [];
-  return expression.split("");
+  return expression.match(SEPARATOR_REGEX) || [];
 };
 //console.log(separateOperationsAndOperators("(1.2+1-6)"));
 
@@ -168,6 +166,11 @@ const sanitizeOperation = (operation) => {
 
 function getResult() {
   let operation = currentOperation.get();
+
+  if (operation == previousOperationText.textContent) {
+    return "";
+  }
+
   previousOperationText.textContent = operation;
 
   try {
@@ -177,8 +180,7 @@ function getResult() {
       console.log(separatedOperations);
       let tokens = ShuntingYardAlgorithm.tokenize(separatedOperations);
       let result = ReversePolishNotation.calculate(tokens);
-      console.log(result);
-      currentOperation.set(eval(operation));
+      currentOperation.set(result.pop());
     } else {
       window.alert("Equação aritmética não é válida!");
       throw new Error("Equação inválida");
