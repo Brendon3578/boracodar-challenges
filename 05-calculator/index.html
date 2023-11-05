@@ -14,10 +14,11 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="scrollbar.css">
+  <link rel="stylesheet" href="./styles/styles.css">
+  <link rel="stylesheet" href="./styles/switch.css">
+  <link rel="stylesheet" href="./styles/scrollbar.css">
 
   <title>Calculadora</title>
 </head>
@@ -25,48 +26,95 @@
 <body>
   <div class="app">
     <section class="calculator">
-      <header class="header">
-        <div class="history">
-          <span data-result="previous">1+1</span>
-        </div>
-        <div class="result">
-          <div class="equals">
-            <i class="ph ph ph-equals"> </i>
+      <div class="main-calculator">
+
+        <header class="header">
+          <div class="extra-buttons">
+            <label class="toggle">
+              <input class="toggle-checkbox" id="toggle-configurations" checked type="checkbox">
+              <div class="toggle-switch"></div>
+              <span class="toggle-label sr-only">Ativar Configurações</span>
+            </label>
           </div>
-          <div class="number">
-            <span data-result="now"></span>
+          <div class="history">
+            &nbsp;
+            <span data-result="previous">1+1</span>
           </div>
-        </div>
-      </header>
-      <main class="buttons">
-        <button data-operation="clear" class="button button-highlight">C</button>
-        <button data-operation="openParentheses" class="button">(</button>
-        <button data-operation="closeParentheses" class="button">)</button>
-        <button data-operation="divide" class="button button-operation"> <i class="ph ph-divide"></i></button>
-        <button data-number class="button">7</button>
-        <button data-number class="button">8</button>
-        <button data-number class="button">9</button>
-        <button data-operation="times" class="button button-operation"> <i class="ph ph-x"></i></button>
-        <button data-number class="button">4</button>
-        <button data-number class="button">5</button>
-        <button data-number class="button">6</button>
-        <button data-operation="minus" class="button button-operation"> <i class="ph ph-minus"></i></button>
-        <button data-number class="button">2</button>
-        <button data-number class="button">1</button>
-        <button data-number class="button">3</button>
-        <button data-operation="plus" class="button button-operation"> <i class="ph ph-plus"></i></button>
-        <button data-operation="erase" class="button">
-          <i class="ph ph-backspace"></i>
-        </button>
-        <button data-number class="button">0</button>
-        <button data-number class="button">,</button>
-        <button data-operation="equals" class="button button-operation button-highlight"> <i
-            class="ph ph-equals"></i></button>
-      </main>
+          <div class="result">
+            <div class="equals">
+              <i class="ph ph ph-equals"> </i>
+            </div>
+            <div class="number">
+              <span data-result="now"></span>
+            </div>
+          </div>
+        </header>
+        <main class="buttons">
+          <button data-action="clear" class="button button-highlight">C</button>
+          <button data-operation="openParentheses" class="button">(</button>
+          <button data-operation="closeParentheses" class="button">)</button>
+          <button data-operation="divide" class="button button-operation"> <i class="ph ph-divide"></i></button>
+          <button data-number class="button">7</button>
+          <button data-number class="button">8</button>
+          <button data-number class="button">9</button>
+          <button data-operation="times" class="button button-operation"> <i class="ph ph-x"></i></button>
+          <button data-number class="button">4</button>
+          <button data-number class="button">5</button>
+          <button data-number class="button">6</button>
+          <button data-operation="minus" class="button button-operation"> <i class="ph ph-minus"></i></button>
+          <button data-number class="button">1</button>
+          <button data-number class="button">2</button>
+          <button data-number class="button">3</button>
+          <button data-operation="plus" class="button button-operation"> <i class="ph ph-plus"></i></button>
+          <button data-action="erase" class="button">
+            <i class="ph ph-backspace"></i>
+          </button>
+          <button data-number class="button">0</button>
+          <button data-number class="button">,</button>
+          <button data-action="equals" class="button button-operation button-highlight"> <i
+              class="ph ph-equals"></i></button>
+        </main>
+      </div>
+
+      <div class="second-calculator" id="configurations">
+        <h2>Passo-a-passo do cálculo feito</h2>
+        <p>
+        </p>
+        <section>
+          <div>
+            <h3>Resolução através do Algorítmo Shunting Yard</h3>
+            <div class="shunting-yard-container">
+              <div class="input-output-container">
+                <span class="label output">Output</span>
+                <div class="number-output" id="shunting-output">
+                </div>
+                <div class="direction">
+                  ⬇
+                </div>
+                <span class="label input">Input</span>
+                <div class="number-input" id="shunting-input">
+                </div>
+              </div>
+              <div class="stack-container">
+                <span class="label">Operator Stack</span>
+                <div class="number-stack" id="shunting-stack">
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+        <p>Esse cálculo foi feito utilizando o algoritmo de <strong>Shunting Yard (Pátio de Manobras)</strong> e a
+          <strong>Notação Polonesa
+            Reversa (NPR)</strong> com a utilização de estrutura de dados Stacks (pilhas) e Queues (Filas)
+        </p>
+      </div>
+
     </section>
   </div>
   <script type="module" src="./script.js"></script>
-  <script type="module" src="./stack.js"></script>
+  <script type="module" src="./scripts/toggle.js"></script>
+  <script type="module" src="./scripts/display.js"></script>
 </body>
 
 
