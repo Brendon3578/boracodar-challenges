@@ -5,13 +5,20 @@ const outputEl = document.getElementById("shunting-output");
 const stackEl = document.getElementById("shunting-stack");
 const directionArrow = document.getElementById("direction-arrow");
 
+const createOperatorEl = (token) =>
+  `<span class="op" title="${token}">${token}</span>`;
+
 /**
  * @param {string} token
  * @param {HTMLElement} el
  */
-function addToken(token, el) {
-  const tokenEl = `<span class="op" title="${token}">${token}</span>`;
-  el.innerHTML += tokenEl;
+function addToken(token, el, addInBegin = false) {
+  const tokenEl = createOperatorEl(token);
+  if (addInBegin) {
+    el.innerHTML = tokenEl + el.innerHTML;
+  } else {
+    el.innerHTML += tokenEl;
+  }
 }
 
 export function clearSteps() {}
@@ -41,7 +48,7 @@ const interfaceUI = {
     });
   },
   pushStack(token) {
-    addToken(token, stackEl);
+    addToken(token, stackEl, true);
   },
   removeInputToken() {
     inputEl.removeChild(inputEl.children[0]);

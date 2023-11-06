@@ -7,6 +7,7 @@ const rootEl = document.querySelector(":root");
 const operationsButtons = document.querySelectorAll("[data-operation]");
 const numbersButtons = document.querySelectorAll("[data-number]");
 const actionsButtons = document.querySelectorAll("[data-action]");
+const accurateResult = document.getElementById("accurate-result");
 const previousOperationText = document.querySelector(
   "[data-result='previous']"
 );
@@ -148,7 +149,7 @@ function isCurrentOperationValid(operation) {
   return true;
 }
 
-const SEPARATOR_REGEX = /(\d+(?:\.\d+)?|[+\-*()])/g;
+const SEPARATOR_REGEX = /(\d+(?:\.\d+)?|[+\-*()/])/g;
 /**
  * Separar as expressões com RegEx : (1.2+1-6) retorna ['1.2', '+', '1', '-', '6']
  * @param {string} expression
@@ -168,7 +169,8 @@ const sanitizeOperation = (operation) => {
 };
 
 function getResult() {
-  let operation = currentOperation.get();
+  let operation = currentOperation.get() || "5+((1+2)x4)-3"; //estático
+  // let operation = currentOperation.get() || "3+4x(2-1)/5"; //estático
 
   if (operation == previousOperationText.textContent) {
     return "";
@@ -183,8 +185,10 @@ function getResult() {
       const separatedOperations = separateOperationsAndOperators(operation);
       console.log(separatedOperations);
       let tokens = ShuntingYardAlgorithm.tokenize(separatedOperations);
-      let result = ReversePolishNotation.calculate(tokens);
-      currentOperation.set(result.pop());
+      let result = ReversePolishNotation.calculate(tokens).pop();
+
+      accurateResult.innerHTML = eval(operation);
+      currentOperation.set(result);
     } else {
       window.alert("Equação aritmética não é válida!");
       throw new Error("Equação inválida");

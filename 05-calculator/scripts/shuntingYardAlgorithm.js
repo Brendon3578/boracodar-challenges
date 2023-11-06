@@ -32,6 +32,9 @@ export default class ShuntingYardAlgorithm {
 
     // verificar se o primeiro operador é unário -> -3+3
     let index = 0;
+    let prevToken = "";
+    let prevOperator = "";
+
     const isSecondToken = (index) => index == 2;
 
     let isUnaryOperatorInStack = false;
@@ -41,13 +44,17 @@ export default class ShuntingYardAlgorithm {
 
       if (isNumber(token)) {
         //verificar casos de operações unárias dentro da stack
+        // TODO: resolver esse problema aqui na eequação
         if (isUnaryOperatorInStack && isMinusToken(operatorStack.peek())) {
-          let operatorToConcat = operatorStack.pop();
-          // na operação 3*-3 o 3 será armazenado com o operador dentro da stack (-3)
-          token = `${operatorToConcat}${token}`;
+          if (isNumber(prevToken)) {
+            console.log(!isNumber(prevToken));
+            let operatorToConcat = operatorStack.pop();
+            // na operação 3*-3 o 3 será armazenado com o operador dentro da stack (-3)
+            token = `${operatorToConcat}${token}`;
 
-          interfaceUISteps.addStep("stack", null, "pop");
-          isUnaryOperatorInStack = false;
+            interfaceUISteps.addStep("stack", null, "pop");
+            isUnaryOperatorInStack = false;
+          }
         }
 
         //verificar casos de operações unárias
@@ -66,6 +73,7 @@ export default class ShuntingYardAlgorithm {
         outputQueue.enqueue(token);
         interfaceUISteps.addStep("output", token, "enqueue");
       } else if (isOperator(token)) {
+        prevOperator = token;
         let top_operator = operatorStack.peek();
 
         // verificar casos de operações unárias
@@ -73,12 +81,17 @@ export default class ShuntingYardAlgorithm {
         let hasAlreadyArithmeticOperatorInStack =
           isArithmeticOperator(top_operator) && !isParentheses(token);
 
-        if (hasAlreadyArithmeticOperatorInStack) {
+        if (
+          hasAlreadyArithmeticOperatorInStack ||
+          isLeftParenthesis(prevToken)
+        ) {
           if (isUnaryOperator(token)) {
+            console.log("top_operator: ", top_operator);
+            console.log("y: ", token);
             isUnaryOperatorInStack = true;
           } else {
             // não permitir os seguintes cenários: 3*/3 ou 3/*3 e sim apenas 3+-3
-            throw new Error("Expressão aritmética inválida");
+            // throw new Error("Expressão aritmética inválida");
           }
         }
 
@@ -102,8 +115,10 @@ export default class ShuntingYardAlgorithm {
         } else {
           while (
             operatorStack.size() > 0 &&
-            !(isUnaryOperatorInStack && isMinusToken(token)) && // resolver isso:
-            // essa operação funciona com 3x-3 mas não com  5+((1+2)x4)-3
+            (!(isUnaryOperatorInStack && isMinusToken(token)) ||
+              (isUnaryOperatorInStack &&
+                isMinusToken(token) &&
+                isLeftParenthesis(prevToken))) &&
             isOperator(operatorStack.peek()) &&
             OPERATORS[token]?.precedence <=
               OPERATORS[operatorStack.peek()]?.precedence
@@ -120,6 +135,8 @@ export default class ShuntingYardAlgorithm {
           interfaceUISteps.addStep("stack", token, "push");
           operatorStack.push(token);
         }
+
+        prevToken = token;
       }
 
       logStructState(

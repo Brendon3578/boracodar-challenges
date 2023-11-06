@@ -6,6 +6,7 @@ const OPERATORS = {
   "-": { precedence: 2, associativity: "left", calculate: (a, b) => a - b },
   "*": { precedence: 3, associativity: "left", calculate: (a, b) => a * b },
   "/": { precedence: 3, associativity: "left", calculate: (a, b) => a / b },
+  // "u": { precedence: 3, associativity: "right", calculate: (a, b) => a / b }, -- lidar com unários
 };
 
 /**

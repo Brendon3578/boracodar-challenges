@@ -11,7 +11,7 @@
   max-width: 0;
   color: var(--white);
   border-left: 1px solid var(--mid-gray);
-  padding: 3.2rem;
+  padding: 0rem 3.2rem 3.2rem 3.2rem;
   margin-left: 1.6rem;
   transition: 0.3s ease-in-out;
   transition-property: border padding margin max-width;
@@ -19,7 +19,7 @@
 
 .second-calculator.hidden {
   border: 0px solid rgba(0, 0, 0, 0);
-  padding: 3.2rem 0;
+  padding: 0 0 3.2rem 0;
   margin: 0;
 }
 
@@ -44,6 +44,7 @@
 .second-calculator p {
   width: 32rem;
   font-size: 1.4rem;
+  margin-bottom: 0.4rem;
 }
 
 /* algorthym illustration */

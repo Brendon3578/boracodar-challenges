@@ -181,3 +181,15 @@ body {
 .result .number.error {
   color: var(--error);
 }
+
+a {
+  color: #22c55e;
+  font-weight: 500;
+}
+a:visited,
+a:active {
+  color: #16a34a;
+}
+a:hover {
+  color: #4ade80;
+}
