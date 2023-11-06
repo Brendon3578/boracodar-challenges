@@ -14,15 +14,23 @@ function addToken(token, el) {
   el.innerHTML += tokenEl;
 }
 
+export function clearSteps() {}
+
 const changeSymbol = {
   toOutput() {
-    directionArrow.innerText = "←";
+    directionArrow.innerHTML = '<i class="ph ph-arrow-left"></i>';
   },
   toStack() {
-    directionArrow.innerText = "↓";
+    directionArrow.innerHTML = '<i class="ph ph-arrow-elbow-left-down"></i>';
   },
-  fromStack() {
-    directionArrow.innerText = "↰";
+  toOutputFromStack() {
+    directionArrow.innerHTML = '<i class="ph ph-arrow-elbow-up-left"></i>';
+  },
+  toWaiting() {
+    directionArrow.innerHTML = '<i class="ph-fill ph-hourglass-high"></i>';
+  },
+  toFinished() {
+    directionArrow.innerHTML = '<i class="ph ph-check"></i>';
   },
 };
 
@@ -44,6 +52,9 @@ const interfaceUI = {
   addOutput(token) {
     addToken(token, outputEl);
   },
+  finishedOutput() {
+    changeSymbol.toFinished();
+  },
 };
 
 class interfaceUISteps {
@@ -53,7 +64,7 @@ class interfaceUISteps {
    *
    * @param {"input" | "output" | "stack"} struct
    * @param {string | null} token
-   * @param {"push" | "pop" | "enqueueFromStack" | "enqueue" | "init"} operation
+   * @param {"push" | "pop" | "enqueueFromStack" | "enqueue" | "init" | "finish"} operation
    */
   static addStep(struct, token, operation) {
     this.#queueOperationsStep.enqueue({
@@ -63,38 +74,53 @@ class interfaceUISteps {
     });
   }
 
-  static async showSteps() {
+  static showSteps() {
     while (!this.#queueOperationsStep.isEmpty()) {
       this.awaitTime += 1;
 
       let { struct, token, operation } = this.#queueOperationsStep.dequeue();
 
-      await setTimeout(() => {
+      setTimeout(() => {
         switch (struct) {
           case "input":
-            interfaceUI.setInitialInputTokens(token);
+            if (operation == "init") {
+              interfaceUI.setInitialInputTokens(token);
+            } else if (operation == "finish") {
+              interfaceUI.finishedOutput();
+            }
             break;
           case "output":
             if (operation == "enqueue") {
               interfaceUI.removeInputToken();
               interfaceUI.addOutput(token);
+              changeSymbol.toOutput();
             }
             if (operation == "enqueueFromStack") {
-              interfaceUI.addOutput(token);
               interfaceUI.popStack();
+              interfaceUI.addOutput(token);
+              changeSymbol.toOutputFromStack();
             }
             break;
           case "stack":
             if (operation == "push") {
               interfaceUI.removeInputToken();
               interfaceUI.pushStack(token);
+              changeSymbol.toStack();
             } else if (operation == "pop") {
               interfaceUI.popStack();
+              changeSymbol.toOutputFromStack();
             }
             break;
         }
       }, 1000 * this.awaitTime);
     }
+  }
+
+  static clearSteps() {
+    inputEl.innerHTML = "";
+    outputEl.innerHTML = "";
+    stackEl.innerHTML = "";
+    changeSymbol.toWaiting();
   }
 }
 

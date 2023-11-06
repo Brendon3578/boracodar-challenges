@@ -24,6 +24,11 @@ const ONLY_ARITHMETIC_OPERATORS = ["+", "-", "*", "/"];
 const PARENTHESES_SYMBOLS = ["(", ")"];
 
 /**
+ * Operadores unários permitidos.
+ */
+const UNARY_OPERATORS = ["+", "-"];
+
+/**
  * Verifica se o valor dado é um operador aritmético.
  * @param {string} value - O valor a ser verificado.
  * @returns {boolean} `true` se o valor for um operador aritmético, caso contrário, `false`.
@@ -73,6 +78,8 @@ const isRightParenthesis = (token) => token == ")";
  */
 const isNotNull = (token) => token != null;
 
+const isMinusToken = (token) => token == "-";
+
 /**
  * @param {Queue | Stack} struct
  * @param {string} message
@@ -87,6 +94,13 @@ function logStructState(struct, message, color) {
   );
 }
 
+/**
+ * Verifica se o token dado é um operador unário.
+ * @param {string} token - O token a ser verificado.
+ * @returns {boolean} `true` se o token for um operador unário, caso contrário, `false`.
+ */
+const isUnaryOperator = (token) => UNARY_OPERATORS.includes(token);
+
 export {
   isArithmeticOperator,
   isParentheses,
@@ -97,4 +111,6 @@ export {
   isNotNull,
   OPERATORS,
   logStructState,
+  isUnaryOperator,
+  isMinusToken,
 };

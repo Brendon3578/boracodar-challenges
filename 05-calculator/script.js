@@ -1,6 +1,7 @@
 import ShuntingYardAlgorithm from "./scripts/shuntingYardAlgorithm.js";
 import { isArithmeticOperator, isParentheses } from "./scripts/utils.js";
 import ReversePolishNotation from "./scripts/reversePolishNotation.js";
+import { interfaceUISteps } from "./scripts/display.js";
 
 const rootEl = document.querySelector(":root");
 const operationsButtons = document.querySelectorAll("[data-operation]");
@@ -30,6 +31,8 @@ function changeDisplaySize(value) {
 
 function clearDisplay() {
   currentOperation.set("");
+  interfaceUISteps.clearSteps();
+
   openedParentheses = 0;
   closedParentheses = 0;
   currentState = "";
@@ -175,6 +178,7 @@ function getResult() {
 
   try {
     operation = sanitizeOperation(operation);
+    interfaceUISteps.clearSteps();
     if (isCurrentOperationValid(operation)) {
       const separatedOperations = separateOperationsAndOperators(operation);
       console.log(separatedOperations);
